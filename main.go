@@ -15,7 +15,6 @@ func main() {
 	app := fiber.New()
 
 	app.Get("/", func(ctx *fiber.Ctx) error {
-		log.Println(os.Getenv("APP_NAME"))
 		return ctx.Status(200).JSON(fiber.Map{
 			"success": true,
 			"message": "Welcome to the Online Image Link API",

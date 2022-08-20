@@ -4,7 +4,11 @@ go 1.18
 
 require (
 	github.com/andybalholm/brotli v1.0.4 // indirect
+	github.com/cloudinary/cloudinary-go/v2 v2.1.0 // indirect
+	github.com/creasty/defaults v1.5.1 // indirect
 	github.com/gofiber/fiber/v2 v2.36.0 // indirect
+	github.com/google/uuid v1.2.0 // indirect
+	github.com/gorilla/schema v1.2.0 // indirect
 	github.com/joho/godotenv v1.4.0 // indirect
 	github.com/klauspost/compress v1.15.0 // indirect
 	github.com/kr/fs v0.1.0 // indirect
