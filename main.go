@@ -2,7 +2,9 @@ package main
 
 import (
 	"github.com/Ankan002/dev-challenges-online-image-link-backend/config"
+	"github.com/Ankan002/dev-challenges-online-image-link-backend/routes"
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 	"log"
 	"os"
 )
@@ -13,6 +15,9 @@ func main() {
 	}
 
 	app := fiber.New()
+	app.Use(cors.New())
+
+	router := app.Group("/api")
 
 	app.Get("/", func(ctx *fiber.Ctx) error {
 		return ctx.Status(200).JSON(fiber.Map{
@@ -20,6 +25,8 @@ func main() {
 			"message": "Welcome to the Online Image Link API",
 		})
 	})
+
+	routes.UploadRouter(router)
 
 	log.Fatal(app.Listen(":" + os.Getenv("PORT")))
 }

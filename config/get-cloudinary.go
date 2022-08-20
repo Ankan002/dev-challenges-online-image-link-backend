@@ -8,7 +8,7 @@ import (
 
 var cloudinaryInstance *cloudinary.Cloudinary
 
-func getCloudinaryInstance() *cloudinary.Cloudinary {
+func GetCloudinaryInstance() *cloudinary.Cloudinary {
 	if cloudinaryInstance != nil {
 		return cloudinaryInstance
 	}
@@ -18,7 +18,7 @@ func getCloudinaryInstance() *cloudinary.Cloudinary {
 	cloudinaryApiSecret := os.Getenv("CLOUDINARY_API_SECRET")
 
 	cld, err := cloudinary.NewFromParams(cloudinaryCloudName, cloudinaryApiKey, cloudinaryApiSecret)
-	
+
 	if err != nil {
 		log.Fatal(err)
 	}
