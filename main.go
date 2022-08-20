@@ -8,7 +8,9 @@ import (
 )
 
 func main() {
-	config.LoadEnv()
+	if os.Getenv("GO_ENV") != "production" {
+		config.LoadEnv()
+	}
 
 	app := fiber.New()
 
