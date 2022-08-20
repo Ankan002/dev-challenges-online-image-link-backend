@@ -49,7 +49,7 @@ func UploadFile(ctx *fiber.Ctx) error {
 
 	cloudinaryInstance := config.GetCloudinaryInstance()
 
-	asyncContext, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	asyncContext, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
 	response, uploadError := cloudinaryInstance.Upload.Upload(asyncContext, photo, uploader.UploadParams{PublicID: "online-image-link/" + uuid.New().String()})
