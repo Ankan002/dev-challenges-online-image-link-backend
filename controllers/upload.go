@@ -15,6 +15,13 @@ func UploadFile(ctx *fiber.Ctx) error {
 
 	photoFile, err := ctx.FormFile("photo")
 
+	if photoFile == nil {
+		return ctx.Status(400).JSON(fiber.Map{
+			"success": false,
+			"error":   "No images received",
+		})
+	}
+
 	fileExtension := strings.Split(photoFile.Filename, ".")[len(strings.Split(photoFile.Filename, "."))-1]
 
 	if fileExtension != "jpeg" && fileExtension != "png" && fileExtension != "jpg" && fileExtension != "gif" && fileExtension != "web" && fileExtension != "svg" && fileExtension != "ico" {

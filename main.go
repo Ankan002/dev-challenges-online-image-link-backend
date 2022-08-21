@@ -15,11 +15,7 @@ func main() {
 	}
 
 	app := fiber.New()
-	app.Use(cors.New(cors.Config{
-		AllowOrigins: "*",
-		AllowHeaders: "*",
-		AllowMethods: "*",
-	}))
+	app.Use(cors.New())
 
 	router := app.Group("/api")
 
